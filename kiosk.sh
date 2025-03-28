@@ -7,9 +7,16 @@ log() {
     echo "[ $(date +'%Y-%m-%d %H:%M:%S') ] $*"
 }
 
-# Объявляем переменные
-URL="https://example.com"
-INSTALL_UNCLUTTER=true  # Устанавливать ли unclutter
+# Запрос значений у пользователя
+read -p "Введите URL для киоска (по умолчанию https://gm.dnestrschool1.online/guacamole): " input_url
+URL=${input_url:-"https://gm.dnestrschool1.online/guacamole"}
+
+read -p "Устанавливать unclutter для скрытия курсора? (y/n, по умолчанию y): " input_unclutter
+if [[ "$input_unclutter" =~ ^[Nn]$ ]]; then
+    INSTALL_UNCLUTTER=false
+else
+    INSTALL_UNCLUTTER=true
+fi
 
 # Обновляем список пакетов
 log "Обновляем список пакетов..."
@@ -73,7 +80,7 @@ sudo update-grub
 
 # Настраиваем тему Plymouth
 log "Настраиваем тему Plymouth..."
-sudo update-alternatives --install /usr/share/plymouth/themes/spinner.plymouth default.plymouth /usr/share/plymouth/themes/spinner/spinner.plymouth 1
+sudo update-alternatives --install /usr/share/plymouth/themes/glow.plymouth default.plymouth /usr/share/plymouth/themes/glow/glow.plymouth 1
 
 log "Обновляем конфигурацию Plymouth..."
 sudo bash -c 'cat > /usr/share/plymouth/themes/default.plymouth' <<EOF
