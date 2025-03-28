@@ -61,7 +61,7 @@ xset s noblank   # Отключить затемнение экрана
 if [ "$INSTALL_UNCLUTTER" = true ]; then
     unclutter -idle 0.1 -root &  # Скрыть курсор
 fi
-chromium-browser --kiosk --enable-features=ClipboardAPI,ClipboardSanitizedWriting --noerrdialogs --disable-infobars --disable-session-crashed-bubble --disable-component-update --disable-save-password-bubble --autoplay-policy=no-user-gesture-required --use-fake-ui-for-media-stream"$URL" --enable-automation --disable-popup-blocking &
+chromium-browser --kiosk --enable-features=ClipboardAPI,ClipboardSanitizedWriting --noerrdialogs --disable-infobars --disable-session-crashed-bubble --disable-component-update --disable-save-password-bubble --autoplay-policy=no-user-gesture-required "$URL" --enable-automation --disable-popup-blocking &
 EOF
 sudo chmod +x /home/kiosk/.config/openbox/autostart
 
