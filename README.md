@@ -26,17 +26,17 @@
 1. Склонируйте репозиторий:
    ```bash
    git clone https://github.com/Riv33R/kiosk.git
-   cd setup-kiosk
+   cd kiosk
    ```
 
 2. Сделайте скрипт исполняемым:
    ```bash
-   chmod +x setup_kiosk.sh
+   chmod +x kiosk.sh
    ```
 
 3. Запустите скрипт:
    ```bash
-   ./setup_kiosk.sh
+   ./kiosk.sh
    ```
 
    **Примечание:** Скрипт выполнит обновление системы, установку необходимых пакетов и настройку параметров. После завершения он перезагрузит систему.
