@@ -8,8 +8,8 @@ log() {
 }
 
 # Запрос значений у пользователя
-read -p "Введите URL для киоска (по умолчанию https://gm.dnestrschool1.online/guacamole): " input_url
-URL=${input_url:-"https://gm.dnestrschool1.online/guacamole"}
+read -p "Введите URL для киоска (по умолчанию https://example.com): " input_url
+URL=${input_url:-"https://example.com"}
 
 read -p "Устанавливать unclutter для скрытия курсора? (y/n, по умолчанию y): " input_unclutter
 if [[ "$input_unclutter" =~ ^[Nn]$ ]]; then
