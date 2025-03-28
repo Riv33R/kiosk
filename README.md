@@ -46,7 +46,7 @@
 - **URL для киоска**  
   Измените переменную `URL` в начале скрипта, чтобы задать нужный адрес:
   ```bash
-  URL="https://gm.dnestrschool1.online/guacamole"
+  URL="https://example.com"
   ```
 
 - **Установка unclutter**  
