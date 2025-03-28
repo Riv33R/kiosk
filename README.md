@@ -1,4 +1,4 @@
-# Setup Kiosk for Ubuntu Server Minimal
+# Режим киоска для Ubuntu Server Minimal
 
 Этот скрипт автоматизирует настройку Ubuntu Server Minimal в режим киоска с анимацией загрузки. Скрипт выполняет следующие задачи:
 
