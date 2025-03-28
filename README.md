@@ -25,7 +25,7 @@
 
 1. Склонируйте репозиторий:
    ```bash
-   git clone https://github.com/yourusername/setup-kiosk.git
+   git clone https://github.com/Riv33R/kiosk.git
    cd setup-kiosk
    ```
 
