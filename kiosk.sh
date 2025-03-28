@@ -54,7 +54,7 @@ xset s noblank   # Отключить затемнение экрана
 if [ "$INSTALL_UNCLUTTER" = true ]; then
     unclutter -idle 0.1 -root &  # Скрыть курсор
 fi
-chromium-browser --kiosk --disable-infobars --noerrdialogs --incognito "\$URL" &
+chromium-browser --kiosk --disable-infobars --noerrdialogs --incognito "$URL" &
 EOF
 sudo chmod +x /home/kiosk/.config/openbox/autostart
 
