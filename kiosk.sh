@@ -80,7 +80,7 @@ sudo update-grub
 
 # Настраиваем тему Plymouth
 log "Настраиваем тему Plymouth..."
-sudo update-alternatives --install /usr/share/plymouth/themes/glow.plymouth default.plymouth /usr/share/plymouth/themes/glow/glow.plymouth 1
+sudo update-alternatives --install /usr/share/plymouth/themes/spinner.plymouth default.plymouth /usr/share/plymouth/themes/spinner/spinner.plymouth 1
 
 log "Обновляем конфигурацию Plymouth..."
 sudo bash -c 'cat > /usr/share/plymouth/themes/default.plymouth' <<EOF
