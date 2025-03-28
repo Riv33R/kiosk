@@ -11,8 +11,8 @@ log() {
 read -p "Введите URL для киоска (по умолчанию https://example.com): " input_url
 URL=${input_url:-"https://example.com"}
 
-read -p "Устанавливать unclutter для скрытия курсора? (y/n, по умолчанию y): " input_unclutter
-if [[ "$input_unclutter" =~ ^[Nn]$ ]]; then
+read -p "Устанавливать unclutter для скрытия курсора? (y/n, по умолчанию n): " input_unclutter
+if [[ "$input_unclutter" =~ ^[Ny]$ ]]; then
     INSTALL_UNCLUTTER=false
 else
     INSTALL_UNCLUTTER=true
@@ -61,7 +61,7 @@ xset s noblank   # Отключить затемнение экрана
 if [ "$INSTALL_UNCLUTTER" = true ]; then
     unclutter -idle 0.1 -root &  # Скрыть курсор
 fi
-chromium-browser --kiosk --enable-features=ClipboardAPI,ClipboardSanitizedWriting --noerrdialogs --disable-infobars --disable-session-crashed-bubble --disable-component-update --disable-save-password-bubble --autoplay-policy=no-user-gesture-required "$URL" --enable-automation --disable-popup-blocking &
+chromium-browser --kiosk --guest "$URL" --enable-features=ClipboardAPI,ClipboardSanitizedWriting --noerrdialogs --disable-infobars --disable-session-crashed-bubble --disable-component-update --disable-cache &
 EOF
 sudo chmod +x /home/kiosk/.config/openbox/autostart
 
@@ -79,7 +79,6 @@ sudo mkdir -p /etc/chromium/policies/managed
 sudo bash -c 'cat > /etc/chromium/policies/managed/policy.json' <<EOF
 {
   "ClipboardAllowed": true,
-  "DefaultClipboardSetting": 1
 }
 EOF
 
