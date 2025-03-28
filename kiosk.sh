@@ -61,7 +61,7 @@ xset s noblank   # Отключить затемнение экрана
 if [ "$INSTALL_UNCLUTTER" = true ]; then
     unclutter -idle 0.1 -root &  # Скрыть курсор
 fi
-chromium-browser --kiosk --disable-infobars --noerrdialogs --incognito "$URL" &
+chromium-browser --kiosk --enable-features=ClipboardAPI,ClipboardSanitizedWriting --noerrdialogs --disable-infobars --disable-session-crashed-bubble --disable-component-update --disable-save-password-bubble --autoplay-policy=no-user-gesture-required --use-fake-ui-for-media-stream"$URL" --enable-automation --disable-popup-blocking &
 EOF
 sudo chmod +x /home/kiosk/.config/openbox/autostart
 
@@ -76,7 +76,7 @@ EOF
 # Настраиваем Chromium для работы с буфером обмена
 log "Настраиваем политику Chromium для работы с буфером обмена..."
 sudo mkdir -p /etc/chromium/policies/managed
-sudo bash -c 'cat > /etc/chromium/policies/managed/clipboard_policy.json' <<EOF
+sudo bash -c 'cat > /etc/chromium/policies/managed/policy.json' <<EOF
 {
   "ClipboardAllowed": true,
   "DefaultClipboardSetting": 1
