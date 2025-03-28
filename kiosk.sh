@@ -73,6 +73,16 @@ if [[ -z \$DISPLAY ]] && [[ \$(tty) == /dev/tty1 ]]; then
 fi
 EOF
 
+# Настраиваем Chromium для работы с буфером обмена
+log "Настраиваем политику Chromium для работы с буфером обмена..."
+sudo mkdir -p /etc/chromium/policies/managed
+sudo bash -c 'cat > /etc/chromium/policies/managed/clipboard_policy.json' <<EOF
+{
+  "ClipboardAllowed": true,
+  "DefaultClipboardSetting": 1
+}
+EOF
+
 # Настраиваем Plymouth и скрытие текста загрузки
 log "Настраиваем анимацию загрузки (Plymouth)..."
 sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash vt.global_cursor_default=0"/' /etc/default/grub
