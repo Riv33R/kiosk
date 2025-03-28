@@ -23,7 +23,7 @@ log "Обновляем список пакетов..."
 sudo apt update
 
 # Устанавливаем необходимые пакеты
-PACKAGES="xserver-xorg x11-xserver-utils xinit openbox chromium-browser plymouth plymouth-theme-*"
+PACKAGES="nano xserver-xorg x11-xserver-utils xinit openbox chromium-browser plymouth plymouth-theme-*"
 log "Устанавливаем пакеты: $PACKAGES"
 sudo apt install -y $PACKAGES
 
